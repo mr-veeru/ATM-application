@@ -45,32 +45,42 @@ public class Banking
     				
     				System.out.println("Enter the accountNumber to operate");
     				int account=sc.nextInt();
+    				
+    				System.out.println("Enter pin to operate");
+    				int pin=sc.nextInt();
+
+    				if(ch == 1 || ch == 2)
+    					for(int i=0; i<saCount; i++)
+    						savingsAccount[i].balanceEnquiry(account, pin);
+    				else if(ch == 4 || ch == 5)
+    					for(int i=0; i<caCount; i++)
+    						currentAccount[i].balanceEnquiry(account, pin);
+    				
     				switch(ch)
     				{
     					case 1: 
     						for(int i=0;i<saCount;i++)
-    							savingsAccount[i].depositAmount(account);
+    							savingsAccount[i].depositAmount(account, pin);
     						break;
     					case 2: 
     						for(int i=0;i<saCount;i++)
-    							savingsAccount[i].withdrawAmount(account);
+    							savingsAccount[i].withdrawAmount(account, pin);
     						break;
     					case 3:
     						for(int i=0;i<saCount;i++) 
-    							savingsAccount[i].balanceEnquiry(account);
+    							savingsAccount[i].balanceEnquiry(account, pin);
     						break;
     					case 4:
-    						System.out.println("Number of CA"+caCount);
     						for(int i=0;i<caCount;i++) 
-    							currentAccount[i].depositAmount(account);
+    							currentAccount[i].depositAmount(account, pin);
     						break;
     					case 5:
     						for(int i=0;i<caCount;i++) 
-    							currentAccount[i].withdrawAmount(account);
+    							currentAccount[i].withdrawAmount(account, pin);
     						break;
     					case 6:
     						for(int i=0;i<caCount;i++) 
-    							currentAccount[i].balanceEnquiry(account);
+    							currentAccount[i].balanceEnquiry(account, pin);
     						break;
     				}
 			}	
